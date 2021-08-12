@@ -23,9 +23,9 @@ def banner():
 
 def main():
     banner()
-    print("[1] СПАМЕР")
-    print("[2] ОБНОВИТЬ СПАМЕР")
-    print("[3] ВЫЙТИ")
+    print("[1] СМС СПАМЕР.")
+    print("[2] ОБНОВИТЬ СПАМЕР.")
+    print("[3] ВЫХОД.")
     print()
     number = input(f"{BRIGHT}{BLUE}Введите номер пункта: {RESET_ALL}")
     if number == "1":
@@ -56,7 +56,7 @@ def spam_handler():
         proxies = None
     print()
     print("Введите кол-во потоков")
-    threads = input(f"{BRIGHT}{BLUE}spammer >> {RESET_ALL}")
+    threads = input(f"{BRIGHT}{BLUE}GGBRO >> {RESET_ALL}")
     if threads in ["", " ", "0"]:
         threads = "1"
     try:
@@ -699,7 +699,7 @@ def check_internet():
 
 def check_version():
     version = "3.1"
-    if float(version) < float(get("https://raw.githubusercontent.com/HaCk1320/GGBRO/master/version.txt").text):
+    if float(version) < float(get("https://raw.githubusercontent.com/cludeex/spammer/master/version.txt").text):
         print(f"\n{BRIGHT}{RED}[*] Версия устарела и нуждается в обновлении!{RESET_ALL}")
         sleep(1)
         main()
@@ -716,14 +716,14 @@ def update():
             file = open("/usr/bin/GGBRO", "wb")
         elif exists("/usr/local/bin/") and isfile("/usr/local/bin/GGBRO"):
             file = open("/usr/local/bin/GGBRO", "wb")
-        elif exists("/data/data/com.termux/files/usr/bin") and isfile("/data/data/com.termux/files/usr/bin/spammer"):
+        elif exists("/data/data/com.termux/files/usr/bin") and isfile("/data/data/com.termux/files/usr/bin/GGBRO"):
             file = open("/data/data/com.termux/files/usr/bin/GGBRO", "wb")
         try:
-            file.write(get("t.me/joinchat/wjyaLT-JHehiNGEy").content)
+            file.write(get("https://raw.githubusercontent.com/HaCk1320/GGBRO/master/GGBRO.py").content)
             file.close()
             system("GGBRO")
         except UnboundLocalError:
-            system("cd ggbro && rm -rf ggbro && git clone https://github.com/HaCk1320/GGBRO && cd ggbro sh install.sh")
+            system("cd $HOME && rm -rf GGBRO && git clone https://github.com/HaCk1320/GGBRO && cd GGBRO && sh install.sh")
     else:
         main()
 
@@ -735,6 +735,3 @@ RESET_ALL = Style.RESET_ALL
 
 if __name__ == "__main__":
     main()
-
-
-
